@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Image -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="script.js"></script>
+
+
+    <title>Module HelpDesk</title>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <img src="assets/images/logo.svg" alt="Logo" class="logo">
+    <span class="title">HelpDesk</span>
+    <div class="user-info">
+        <span class="email">user@example.com</span>
+        <i class="fas fa-user-circle fa-sm"></i>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Accordions -->
+        <div class="col-md-4">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                                onclick="showForm('form1', this)">
+                            HelpDesk
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Техническая поддержка, поддержка информационных систем, управление данными, системное
+                            администрирование.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                onclick="showForm('form2', this)">
+                            Заявка на нового пользователя
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Создание заявки для регистрации нового пользователя.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
+                                onclick="showForm('form3', this)">
+                            Заявка на испытание
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Отправка заявки для проведения испытаний.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                                onclick="showForm('form4', this)">
+                            Отдел эксплуатации
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Обслуживание и поддержка оборудования механической службы.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
+                                onclick="showForm('form5', this)">
+                            Заказ транспорта
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Оформление заявки на использование транспорта.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forms -->
+        <div class="col-md-8">
+
+            <!-- HelpDesk -->
+            <div id="form1" class="form-container form1-container" style="display:none;">
+                <h5 class="mb-4"><strong>HelpDesk</strong></h5>
+                <form onsubmit="return submitForm(event, 'form1')">
+                    <div class="mb-2">
+                        <label for="theme">Тема заявки</label>
+                        <input type="text" id="theme" class="form-control" name="theme"
+                               placeholder="Введите тему заявки" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message1" class="form-label">Описание заявки</label>
+                        <textarea class="form-control" id="message1" rows="3" placeholder="Введите описание заявки"
+                                  required></textarea>
+                    </div>
+                    <div class="mb-3 drag-drop-area" id="dragDropArea1" ondrop="handleDrop(event, 'files1', 'fileList1')" ondragover="event.preventDefault()">
+                        <input type="file" id="files1" class="form-control" multiple accept=".jpg, .jpeg, .png, .pdf, .doc, .docx" style="display:none;" onchange="updateFileList('files1', 'fileList1')" />
+                        <div class="drop-zone" onclick="document.getElementById('files1').click();">
+                            <span> Перетащите файлы сюда или нажмите для выбора</span>
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 42px; color: #714B67; margin-top: 5px; display: block;"></i> <!-- Иконка для загрузки под текстом -->
+                            <div id="fileList1" class="file-list"></div> <!-- Контейнер для отображения списка файлов -->
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Создать заявку</button>
+                </form>
+                <div class="notification" id="notification1" style="display: none;">Заявка успешно создана!</div>
+            </div>
+
+            <!-- Заявка на нового пользователя -->
+            <div id="form2" class="form-container form2-container" style="display: none">
+                <h5 class="mb-4"><strong>Заявка на нового пользователя</strong></h5>
+                <form onsubmit="return submitForm(event, 'form2')" class="form-limited-height">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-2">
+                                <label for="lastName">Фамилия</label>
+                                <input type="text" id="lastName" class="form-control" name="lastName"
+                                       placeholder="Введите фамилию" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-2">
+                                <label for="lastNameLatin">Фамилия (латинскими)</label>
+                                <input type="text" id="lastNameLatin" class="form-control" name="lastNameLatin"
+                                       placeholder="Введите фамилию (латинскими)" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-2">
+                                <label for="firstName">Имя</label>
+                                <input type="text" id="firstName" class="form-control" name="firstName"
+                                       placeholder="Введите имя" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-2">
+                                <label for="firstNameLatin">Имя (латинскими)</label>
+                                <input type="text" id="firstNameLatin" class="form-control" name="firstNameLatin"
+                                       placeholder="Введите имя (латинскими)" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="patronymicName">Отчество</label>
+                        <input type="text" id="patronymicName" class="form-control" name="patronymicName"
+                               placeholder="Введите отчество" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="organization" class="form-label">Организация</label>
+                        <select id="organization5" class="form-select" required>
+                            <option value="" disabled selected>-- Подтягивать из Active Directory --</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label for="department" class="form-label">Подразделение</label>
+                        <select id="department5" class="form-select" required>
+                            <option value="" disabled selected>-- Выберите подразделение --</option>
+                            <option value="department1">АДВИН Смарт Фэктори</option>
+                            <option value="department2">АДВИН Солюшнс</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label for="jobPost">Должность</label>
+                        <input type="text" id="jobPost" class="form-control" name="jobPost"
+                               placeholder="Введите должность" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="workLocation">Месторасположение рабочего места</label>
+                        <input type="text" id="workLocation" class="form-control" name="workLocation"
+                               placeholder="Введите месторасположение рабочего места" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="startDate">Дата выхода на работу</label>
+                        <input type="date" id="startDate" class="form-control" name="startDate" required>
+                    </div>
+                    <div class="mb-4">
+                            <label for="workLocationSelected2" class="form-label">Подразделение</label>
+                            <select id="workLocationSelected2" class="form-select" required onchange="togglePreviousEmployeeField()">
+                                <option value="" disabled selected>-- Выберите вариант рабочего места --</option>
+                                <option value="department1">Имеющееся рабочее место</option>
+                                <option value="department2">Новое рабочее место</option>
+                            </select>
+                    </div>
+
+                        <div class="mb-4" id="previousEmployeeContainer" style="display: none;">
+                            <label for="previousEmployeeName" class="form-label">Фамилия предыдущего работника</label>
+                            <input type="text" id="previousEmployeeName" class="form-control" placeholder="Введите фамилию" />
+                        </div>
+                    <button type="submit" class="btn btn-primary mb-3">Создать заявку</button>
+                </form>
+                <div class="notification mt-4" id="notification5">Заявка успешно создана!</div>
+            </div>
+
+            <!-- Заявка на испытание -->
+            <div id="form3" class="form-container form3-container">
+                <h5 class="mb-4"><strong>Заявка на испытание</strong></h5>
+                <form onsubmit="return submitForm(event, 'form3')" class="form-limited-height">
+                    <div class="mb-2">
+
+                        <label for="activity6" class="form-label">Вид деятельности</label>
+                        <select id="activity6" class="form-select" required>
+                            <option value="" disabled selected>-- Выберите вид деятельности --</option>
+                            <option value="activity1">Испытательная деятельность</option>
+                            <option value="activity2">Участие в проектах</option>
+                            <option value="activity3">Консультирование</option>
+                            <option value="activity3">Поддержка системы менеджмента ИЛ</option>
+                        </select>
+
+                    </div>
+                    <div class="mb-2">
+                        <label for="product">Изделие</label>
+                        <input type="text" id="product" class="form-control" name="product"
+                               placeholder="Введите изделие" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="serial">Заводской номер</label>
+                        <input type="text" id="serial" class="form-control" name="serial"
+                               placeholder="Введите заводской номер" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="requirement">Соответствие требованиям</label>
+                        <input type="text" id="requirement" class="form-control" name="requirement"
+                               placeholder="Соответствие требованиям" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="volume">В объеме</label>
+                        <input type="text" id="volume" class="form-control" name="volume" placeholder="В объеме"
+                               required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="tests">Когда нужно провести испытания</label>
+                        <input type="date" id="tests" class="form-control" name="tests" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="readyTests">Когда объект будет готов к испытаниям</label>
+                        <input type="date" id="readyTests" class="form-control" name="readyTests" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="projectCode">Код проекта</label>
+                        <input type="text" id="projectCode" class="form-control" name="projectCode"
+                               placeholder="Введите код проекта" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="message6" class="form-label">Комментарий</label>
+                        <textarea class="form-control" id="message6" rows="2" placeholder="Введите ваш комментарий"
+                                  required></textarea>
+                    </div>
+                    <div class="mb-2 form-check">
+                        <input type="checkbox" class="form-check-input" id="accreditationProtocol"
+                               name="accreditationProtocol">
+                        <label class="form-check-label" for="accreditationProtocol">Протокол с аккредитацией</label>
+                    </div>
+                    <div class="mb-2 form-check">
+                        <input type="checkbox" class="form-check-input" id="noAccreditationProtocol"
+                               name="noAccreditationProtocol">
+                        <label class="form-check-label" for="noAccreditationProtocol">Протокол без аккредитации</label>
+                    </div>
+                    <div class="mb-2 form-check">
+                        <input type="checkbox" class="form-check-input" id="customReport" name="customReport">
+                        <label class="form-check-label" for="customReport">Произвольный отчет</label>
+                    </div>
+                    <div class="mb-2">
+                        <label for="note6" class="form-label">Примечание</label>
+                        <textarea class="form-control" id="note6" rows="2" placeholder="Введите примечание">Правило принятия решения – простая приёмка с защитной полосой, имеющей длину равную нуль w=0 *При необходимости получения заключения в протоколе с аккредитацией оставить фразу. Ознакомиться с правилами принятия решения в соответствии с ILAC-G8:09 http://lab-adani.by/assets/docs.</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Создать заявку</button>
+                </form>
+                <div class="notification" id="notification6">Заявка успешно создана!</div>
+            </div>
+
+            <!-- Отдел эксплуатации и служба механика -->
+            <div id="form4" class="form-container form4-container" style="display:none;">
+                <h5 class="mb-4"><strong>Отдел эксплуатации</strong></h5>
+                <form onsubmit="return submitForm(event, 'form4')">
+                    <div class="mb-3">
+                        <label for="theme4" class="form-label">Выберите тему заявки</label>
+                        <select id="theme4" class="form-select" required>
+                            <option value="" disabled selected>-- Выберите тему --</option>
+                            <option value="theme1">Отчеты за смену</option>
+                            <option value="theme2">Перерасцеховка</option>
+                            <option value="theme3">Аппаратное обеспечение</option>
+                            <option value="theme4">Общие проблемы</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="system4" class="form-label">Выберите систему</label>
+                        <select id="system4" class="form-select" required>
+                            <option value="" disabled selected>-- Выберите систему --</option>
+                            <option value="system1">1С:УПП</option>
+                            <option value="system2">1С:БУХ</option>
+                            <option value="system3">1С:ЗУП</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message4" class="form-label">Сообщение</label>
+                        <textarea class="form-control" id="message4" rows="3" placeholder="Введите ваше сообщение"
+                                  required></textarea>
+                    </div>
+                    <div class="mb-3 drag-drop-area" id="dragDropArea4"
+                         ondrop="handleDrop(event, 'files4', 'fileList4')" ondragover="event.preventDefault()">
+                        <input type="file" id="files4" class="form-control" multiple
+                               accept=".jpg, .jpeg, .png, .pdf, .doc, .docx" style="display:none;"
+                               onchange="updateFileList('files4', 'fileList4')"/>
+                        <div class="drop-zone" onclick="document.getElementById('files4').click();">
+                            <span> Перетащите файлы сюда или нажмите для выбора</span>
+                            <i class="fas fa-cloud-upload-alt"
+                               style="font-size: 42px; color: #714B67; margin-top: 5px; display: block;"></i>
+                            <!-- Иконка для загрузки под текстом -->
+                            <div id="fileList4" class="file-list"></div>
+                            <!-- Контейнер для отображения списка файлов -->
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Создать заявку</button>
+                </form>
+                <div class="notification" id="notification4" style="display: none;">Заявка успешно создана!</div>
+            </div>
+
+            <!-- Заказ транспорта -->
+            <div id="form5" class="form-container form5-container" style="display:none;">
+                <h5 class="mb-4"><strong>Заказ транспорта</strong></h5>
+                <p>Для создания заявки необходимо заполнить форму на корпоративном сайте.</p>
+                <div class="mt-3">
+                    <a href="https://intranet.adani.by/services/ordering-transport/" target="_blank">Перейти на
+                        корпоративный сайт</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script>
+    function showForm(formId, button) {
+
+        const form = document.getElementById(formId);
+        const isExpanded = button.getAttribute('aria-expanded') === 'false';
+
+        const allForms = document.querySelectorAll('.form-container');
+        allForms.forEach((f) => {
+            f.style.display = 'none';
+        });
+
+        if (!isExpanded) {
+            form.style.display = 'block';
+        }
+    }
+
+    // Функция для обновления списка файлов
+    function updateFileList(fileInputId, fileListId) {
+        const fileInput = document.getElementById(fileInputId);
+        const fileListContainer = document.getElementById(fileListId);
+        const files = fileInput.files;
+
+        // Очистка предыдущего списка файлов
+        fileListContainer.innerHTML = '';
+
+        // Проверка на наличие файлов
+        if (files.length > 0) {
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+
+                // Создание элемента списка для файла
+                const fileItem = document.createElement('div');
+                fileItem.classList.add('file-item');
+
+                // Добавление названия файла
+                fileItem.textContent = file.name;
+
+                // Добавление кнопки для удаления файла
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Удалить';
+                removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2');
+                removeButton.onclick = function () {
+                    // Удаление файла из списка
+                    const newFileList = Array.from(files).filter((_, index) => index !== i);
+                    const dataTransfer = new DataTransfer();
+                    newFileList.forEach(file => dataTransfer.items.add(file));
+                    fileInput.files = dataTransfer.files;
+
+                    // Обновление отображаемого списка файлов
+                    updateFileList(fileInputId, fileListId);
+                };
+
+                // Добавление элементов к списку
+                fileItem.appendChild(removeButton);
+                fileListContainer.appendChild(fileItem);
+            }
+        }
+    }
+
+    // Функция для обработки перетаскивания
+    function handleDrop(event, fileInputId, fileListId) {
+        event.preventDefault();
+        const files = event.dataTransfer.files;
+        const fileInput = document.getElementById(fileInputId);
+
+        // Добавление файлов в input
+        const dataTransfer = new DataTransfer();
+        for (let i = 0; i < fileInput.files.length; i++) {
+            dataTransfer.items.add(fileInput.files[i]);
+        }
+        for (let i = 0; i < files.length; i++) {
+            dataTransfer.items.add(files[i]);
+        }
+        fileInput.files = dataTransfer.files;
+
+        // Обновление списка файлов
+        updateFileList(fileInputId, fileListId);
+    }
+
+    function togglePreviousEmployeeField() {
+        const selectElement = document.getElementById('workLocationSelected2');
+        const previousEmployeeContainer = document.getElementById('previousEmployeeContainer');
+
+        // Проверяем выбранное значение
+        if (selectElement.value === 'department1') {
+            previousEmployeeContainer.style.display = 'block'; // Показываем поле
+        } else {
+            previousEmployeeContainer.style.display = 'none'; // Скрываем поле
+        }
+    }
+
+    // Функция отправки формы
+    function submitForm(event, formId) {
+        event.preventDefault(); //
+
+        // Отправка формы и уведомление об успехе
+        const notification = document.getElementById(`notification${formId.charAt(formId.length - 1)}`);
+        notification.style.display = 'block';
+
+        // Очистка полей
+        const fileListContainer = document.getElementById(`fileList${formId.charAt(formId.length - 1)}`);
+        fileListContainer.innerHTML = ''; // Очистка списка файлов
+        document.getElementById(`files${formId.charAt(formId.length - 1)}`).value = ''; // Очистка input файлов
+
+        return false; // Предотвращение дальнейшей отправки
+    }
+</script>
+
+
+<!-- Bootstrap JS (must be included after jQuery) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

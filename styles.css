@@ -1,0 +1,172 @@
+.header {
+    font-family: 'Caveat', cursive; /* Шрифт для заголовка */
+    font-size: 35px; /* Размер шрифта */
+    font-weight: bold;
+    color: #f8f9fa;
+    text-align: center; /* Центрирование текста */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    background-color: #714B67;
+    padding: 20px;
+    align-items: center;
+    position: relative; /* Для позиционирования элементов внутри */
+}
+
+.header .logo {
+    width: 210px; /* Увеличение логотипа */
+    height: auto; /* Автоматическая высота */
+    position: absolute;
+    left: 20px; /* Отступ слева */
+    top: 50%;
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    fill: white; /* Белый цвет для SVG */
+}
+.header .title {
+    flex-grow: 1; /* Занимает оставшееся пространство для центрирования */
+    text-align: center;
+}
+
+.user-info {
+    position: absolute;
+    right: 20px; /* Отступ справа */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translateY(-50%); /* Коррекция вертикального центрирования */
+    display: flex;
+    align-items: center;
+    color: #f8f9fa; /* Цвет текста и иконки */
+}
+
+.user-info .email {
+    margin-right: 10px;
+    font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
+    font-size: 16px; /* Размер шрифта для email */
+}
+
+.user-info i {
+    color: #f8f9fa;
+    font-size: 50px; /* Размер иконки */
+}
+.title {
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+}
+.logo {
+    color: #f8f9fa;
+    font-size: 50px; /* Размер иконки */
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* Аккордеон */
+/* Изменение при наведении */
+.accordion-button:hover {
+    background-color: #855277;
+    color: white;
+}
+/* Состояние при раскрытии аккордеона */
+.accordion-button:not(.collapsed) {
+    background-color: #855277; /* Оставляем фиолетовый при раскрытии */
+    color: white; /* Белый текст */
+}
+
+.form-container {
+    display: none; /* Скрыть все формы по умолчанию */
+    padding: 20px; /* Отступы  */
+    border-radius: 5px; /* Скругленные углы */
+    margin-bottom: 20px; /* Отступ снизу */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для выделения формы */
+    color: #333; /* Цвет текста */
+}
+
+/*стиль для кнопки создать заявку*/
+.btn-primary {
+    background-color: #714B67;
+    color: #ffffff;
+    width: 100%;
+}
+/*стиль для кнопки создать заявку*/
+.btn-primary:hover {
+    background-color: #523349;
+
+}
+
+.accordion-button {
+    font-weight: bold;
+}
+
+.notification {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    color: #155724;
+}
+.drag-drop-area {
+    border: 2px dashed #714B67;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.drop-zone {
+    cursor: pointer;
+}
+.file-list {
+    margin-top: 10px;
+    text-align: left;
+}
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+/*подкрашивание форм*/
+/*.form1-container {*/
+/*    background-color: #FFCCCC;*/
+/*}*/
+/*.form2-container {*/
+/*    background-color: #FFE6B5;*/
+/*    !*border: 1px solid #5cb85c; !* Линия вокруг формы *!*!*/
+/*}*/
+/*.form3-container {*/
+/*    background-color: #FFF9CC;*/
+/*}*/
+/*.form4-container {*/
+/*    background-color: #D8FFD8*/
+/*}*/
+/*.form5-container {*/
+/*    background-color: #D0E8FF;*/
+/*}*/
+/*.form6-container {*/
+/*    background-color: #A0C4FF;*/
+/*}*/
+/*.form7-container {*/
+/*    background-color: #EAB8E4;*/
+/*}*/
+/*.form8-container {*/
+/*    background-color: #E0E0E0;*/
+/*}*/
+
+@media (max-width: 768px) {
+    .header {
+        font-size: 2rem; /* Уменьшение размера шрифта для экранов меньше 768px */
+    }
+
+    .sidebar {
+        width: 100%; /* Ширина бокового меню на мобильных устройствах */
+        border-right: none; /* Убираем границу */
+        border-bottom: 1px solid #ddd; /* Граница снизу */
+        padding: 10px; /* Меньшие отступы */
+    }
+
+    .sidebar button {
+        margin-bottom: 5px; /* Меньшие отступы между кнопками */
+    }
+}
