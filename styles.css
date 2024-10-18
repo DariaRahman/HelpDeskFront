@@ -1,0 +1,119 @@
+@media (min-width: 769px) {
+    .navbar-nav {
+        display: none; /* Скрыть меню на десктопе */
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion, .form-container {
+        display: none; /* Скрыть аккордеоны и формы на мобильных */
+    }
+
+    .no-content {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.form-check-input:checked {
+    background-color: #855277;
+    border-color: #855277;
+}
+
+.form-check-input {
+    background-color: #ffffff;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+}
+
+.accordion-button {
+    font-weight: 700;
+}
+
+.accordion-button:hover {
+    background-color: #855277;
+    color: white;
+}
+
+/* Состояние при раскрытии аккордеона */
+.accordion-button:not(.collapsed) {
+    background-color: #855277;
+    color: white;
+}
+
+.accordion-button:focus .accordion-button-icon,
+.accordion-button:hover .accordion-button-icon {
+    color: #fff; /* Цвет стрелки при наведении */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='white'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Белая иконка */
+    width: 1em;
+    height: 1em;
+}
+
+
+.navbar-toggler {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.navbar-toggler-:focus {
+    outline: none;
+}
+
+.navbar {
+    background-color: #714B67; /* Цвет заголовка */
+}
+
+.navbar-brand, .nav-link {
+    color: white; /* Цвет текста */
+}
+
+.nav-link:hover {
+    color: #D6C4D3; /* Цвет текста при наведении */
+}
+
+
+.btn-primary {
+    background-color: #714B67; /* Цвет фона кнопки */
+    border-color: #714B67; /* Цвет рамки кнопки */
+    --bs-btn-active-bg: #ad8697;
+    --bs-btn-border-color: #ad8697;
+    --bs-btn-active-border-color: #ad8697;
+}
+
+.btn-primary:hover {
+    background-color: #5b3d53; /* Цвет фона кнопки при наведении */
+    border-color: #5b3d53; /* Цвет рамки кнопки при наведении */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-container {
+    margin-bottom: 20px; /* Отступы между формами */
+    border: 1px solid #ccc; /* Рамка формы */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #ffffff; /* Цвет фона формы */
+}
+
+.user-icon-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon {
+    color: white;
+}
